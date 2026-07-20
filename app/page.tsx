@@ -2,7 +2,15 @@ import Image from "next/image";
 import Hero from "@/components/Hero";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { FaHome } from "react-icons/fa";
-import Grid from '../components/Grid'
+import Grid from '../components/Grid';
+
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { TextPlugin } from "gsap/TextPlugin"
+
+gsap.registerPlugin(useGSAP,ScrollTrigger,SplitText,TextPlugin);
 
 
 export default function Home() {

@@ -1,10 +1,39 @@
+"use client";
+
 import {Spotlight} from "@/components/ui/Spotlight";
 import { cn } from "@/lib/utils";
 import {TextGenerateEffect} from "@/components/ui/TextGenerateEffect";
 import MagicButton from './ui/MagicButton';
 import { FaLocationArrow } from 'react-icons/fa';
+import ParaRef from './ui/ParaRef';
+import HeroText from './ui/HeroText';
+
+
+import { gsap } from "gsap";
+import { useEffect } from "react";
+
+
 
 const Hero = () => {
+
+    useEffect(() =>{
+        gsap.from(".hero-para",{
+            y: 50,
+            delay:3.5,
+            opacity: 0,
+            duration: 3,
+            ease: "power3.out", 
+        });
+
+        gsap.from(".magic-button",{
+            y:-30,
+            delay:4.5,
+            opacity: 0,
+            duration: 2,
+            ease: "power2.out",
+        });
+    }, [])
+
     return (
 
         <div className=" w-full w-9/12 pt-36 -z-10">
@@ -27,20 +56,20 @@ const Hero = () => {
                         <div className="z-10 flex justify-center pt-0">
                             <div className='flex max-w-[89vw] flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]'>
                                
-                                <h2 className="max-w-80 text-center text-xs uppercase tracking-widest text-blue-100">
-                                    Dynamic Web Magic with Next.js {/* Add GSAP aniumatoons on text */}
+                                <h2 className="hero-para max-w-80 text-center text-xs uppercase tracking-widest text-blue-100">
+                                    Dynamic Web Magic with Next.js
                                 </h2>
+
+                            
 
                                 <TextGenerateEffect
                                     className=' text-center text-[40px] md:text-5xl lg:text-6xl'
                                     words='Transforming Concepts into Seamless User Experiences'
                                 />
 
-                                <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl mt-10"> 
-                                    {/* Hi, I&apos;m Maks, frontend developer based in Poland. */} {/* Add GSAP aniumatoons on text */}
-                                </p>
+                                <ParaRef/>
 
-                                <a href="#about">
+                                <a href="#about" className="magic-button">
                                     <MagicButton 
                                         title="Show my work"
                                         icon={<FaLocationArrow />}
